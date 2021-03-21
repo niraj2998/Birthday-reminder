@@ -10,8 +10,14 @@ function App() {
     const newPeople = people.filter(person => person.id !== id)
     setPeople(newPeople)
     setSendwish(true)
-    setTimeout(() => setSendwish(false), 1000);
   }
+
+  useEffect(() => {
+    let timeout = setTimeout(() => setSendwish(false), 1000);
+    return () => {
+      clearTimeout(timeout)
+    }
+  },[sendWishTo])
 
   return <main>
     <section className="container">

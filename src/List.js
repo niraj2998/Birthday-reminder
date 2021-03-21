@@ -4,7 +4,7 @@ import soundfile from "./here-i-am.mp3"
 const List = ({people, clicked}) => {
 
   useEffect(() => {
-    if(people.length != 0){
+    if(people.length !== 0){
     const audioE1 = document.getElementsByClassName("audio-element")[0]
     audioE1.play()
     }
@@ -16,9 +16,8 @@ const List = ({people, clicked}) => {
       {people.map((person) => {
         const {id, name, age, image} = person;
         return <>
-        {}
         <article key={id} className="person">
-          <img src={image} alt="person image"/>
+          <img src={image} alt={`${name}'s pic`}/>
           <div>
             <h4>{name}</h4>
             <p>{age} years</p>
